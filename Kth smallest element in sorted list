@@ -1,0 +1,12 @@
+ int kthSmallest(vector<vector<int>>& m, int k) {
+      priority_queue<int>hp;  // declation of heap in cpp by default it is a max heap 
+      for(int i=0;i<m.size();i++){
+          for(int j=0;j<m[i].size();j++){
+              hp.push(-1*m[i][j]); // pushing every element of matrix into heap by using additive inverse we will convert max heap to min heap
+          }
+      }  
+      for(int i=1;i<k;i++){
+          hp.pop();  // we are removing k-1 elememnts from heap 
+      }
+      return -1*hp.top(); // returning kth smallest element to the main fuction where this function is called.
+    }
